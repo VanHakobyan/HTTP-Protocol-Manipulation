@@ -1,4 +1,7 @@
-﻿namespace HTTPProtocolAnalyzer
+﻿using System;
+using System.Threading;
+
+namespace HTTPProtocolAnalyzer
 {
     class Program
     {
@@ -8,8 +11,13 @@
             var path = @"D:\text.txt";
             var link = new LinkWriter(path);
             link.linkSaver("https://mail.ru/");
-            MailExtracter.ExtractEmails(@"D:\text.txt", @"D:\test.txt");
 
+            link.Dispose(); //solution suggested by Aram Zhamkochyan
+
+            Console.WriteLine("first step");
+            Thread.Sleep(2000);
+            MailExtracter.ExtractEmails(@"D:\text.txt", @"D:\test.txt");
+            Console.WriteLine("second step");
         }
     }
 }
