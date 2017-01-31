@@ -24,9 +24,9 @@ namespace HTTPProtocolAnalyzer
             }
 
             Uri uri = new Uri(link);
-
+          
             var html = wc.DownloadString(uri);
-
+   
             sw.Write(html);
         }
 
@@ -37,7 +37,8 @@ namespace HTTPProtocolAnalyzer
 
         public void Dispose()
         {
-            Dispose();
+            sw.Dispose();
+            wc.Dispose();
         }
     }
 }
