@@ -10,7 +10,7 @@ namespace HTTPProtocolAnalyzer
 
             var path = @"D:\text.txt";
             var link = new LinkWriter(path);
-            link.linkSaver("https://mail.ru/");
+            link.linkSaver("https://e.mail.ru/message/13880712950000000966/");
 
             link.Dispose(); //solution suggested by Aram Zhamkochyan
 
@@ -20,7 +20,7 @@ namespace HTTPProtocolAnalyzer
             Console.WriteLine("second step");
 
             EmailService ES = new EmailService();
-            ES.ContactClient("your hachecd");
+            ES.ContactClient("your HACKED");
             
         }
     }

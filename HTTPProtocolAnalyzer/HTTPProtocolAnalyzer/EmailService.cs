@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.IO;
+using System.Net;
 using System.Net.Mail;
 
 namespace HTTPProtocolAnalyzer
@@ -7,14 +8,19 @@ namespace HTTPProtocolAnalyzer
     {
         public  void ContactClient(string message)
         {
-            MailMessage msg = new MailMessage("vanhakobyan1996@gmail.com", "htvano1996@gmail.com", "error", message);
-            msg.IsBodyHtml = true;
-            SmtpClient sc = new SmtpClient("smtp.gmail.com", 587);
-            sc.UseDefaultCredentials = false;
-            NetworkCredential cre = new NetworkCredential("vanhakobyan1996@gmail.com", "VAN606580");
-            sc.Credentials = cre;
-            sc.EnableSsl = true;
-            sc.Send(msg);
+            string[] lines =File.ReadAllLines(@"D:\test.txt");
+            for (int i = 0; i <lines.Length; i++)
+            {
+                MailMessage msg = new MailMessage("myemail@gmail.com", lines[i], "HACKED", message);
+                msg.IsBodyHtml = true;
+                SmtpClient sc = new SmtpClient("smtp.gmail.com", 587);
+                sc.UseDefaultCredentials = false;
+                NetworkCredential cre = new NetworkCredential("myemail@gmail.com", "pasword");
+                sc.Credentials = cre;
+                sc.EnableSsl = true;
+                sc.Send(msg);
+            }
+            
         }
     }
 }
