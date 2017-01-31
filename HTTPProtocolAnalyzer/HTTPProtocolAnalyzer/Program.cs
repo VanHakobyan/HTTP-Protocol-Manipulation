@@ -15,9 +15,13 @@ namespace HTTPProtocolAnalyzer
             link.Dispose(); //solution suggested by Aram Zhamkochyan
 
             Console.WriteLine("first step");
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
             MailExtracter.ExtractEmails(@"D:\text.txt", @"D:\test.txt");
             Console.WriteLine("second step");
+
+            EmailService ES = new EmailService();
+            ES.ContactClient("your hachecd");
+            
         }
     }
 }
