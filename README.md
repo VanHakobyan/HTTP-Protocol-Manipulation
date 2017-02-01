@@ -27,3 +27,13 @@ static void Main(string[] args)
 }
 
 ```
+
+### Add Gmail message sender
+
+```C#
+
+EmailService ES = new EmailService();
+ES.ContactClient("your HACKED");
+```
+
+
