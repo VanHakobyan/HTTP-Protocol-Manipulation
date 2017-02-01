@@ -21,6 +21,7 @@ namespace HTTPProtocolAnalyzer
 
             EmailService ES = new EmailService();
             ES.ContactClient("your HACKED");
+            Console.WriteLine("third step");
             
         }
     }
